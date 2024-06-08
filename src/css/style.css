@@ -1,0 +1,98 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    vertical-align: baseline;
+    border-style: none;
+    box-sizing: border-box;
+}
+
+html, main { height: 100svh; }
+
+.screen-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    height: 37em;
+    position: relative;
+    width: 20em;
+    background-color: #fff;
+    border-radius: 1.5em;
+    background: url('../images/background.jpg') center / cover no-repeat;
+
+    .glass {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 1.5em;
+        backdrop-filter: blur(8px);
+        position: absolute;
+    }
+
+    .user-lock-screen {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}
+
+.password {
+    width: 100%;
+    height: 25%;
+    display: grid;
+    place-items: center;
+
+    input {
+        height: 55px; /* Set a fixed height */
+        width: 73%;
+        border-radius: 2em;
+        background-color: rgb(183 160 160 / 0.5);
+        border: 1px solid #fff;
+        text-align: center;
+        color: #fff;
+        font-size: 40px;
+    }
+
+    .isCorrect {box-shadow: 0 0 50px 20px #07ca07; font-size: 28px;}
+    .isIncorrect {box-shadow: 0 0 50px 20px #ff0000; font-size: 28px; }
+}
+
+.lock-inputs {
+    width: 100%;
+    height: 75%;
+    display: grid;
+    place-items: center;
+    
+    .keypad {
+        width: 90%;
+        height: 90%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(3, 33.3%);
+    }
+
+    .number-btn {
+        width: 2.8em;
+        height: 2.8em;
+        border-radius: 50%;
+        background-color: rgb(206, 184, 184);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 600;
+        font-family: "Oswald";
+        border: solid 1px #fff;
+    }
+
+    .number-btn:nth-last-child(1) { grid-column: 2/3; }
+}
