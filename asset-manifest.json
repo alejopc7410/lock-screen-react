@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/lock-screen-react/static/css/main.3e6cdc21.css",
-    "main.js": "/lock-screen-react/static/js/main.7f7eacca.js",
+    "main.css": "/lock-screen-react/static/css/main.1957d6ff.css",
+    "main.js": "/lock-screen-react/static/js/main.1ec781a5.js",
     "static/media/background.jpg": "/lock-screen-react/static/media/background.65fb437cd2c4fa67555a.jpg",
     "index.html": "/lock-screen-react/index.html",
-    "main.3e6cdc21.css.map": "/lock-screen-react/static/css/main.3e6cdc21.css.map",
-    "main.7f7eacca.js.map": "/lock-screen-react/static/js/main.7f7eacca.js.map"
+    "main.1957d6ff.css.map": "/lock-screen-react/static/css/main.1957d6ff.css.map",
+    "main.1ec781a5.js.map": "/lock-screen-react/static/js/main.1ec781a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e6cdc21.css",
-    "static/js/main.7f7eacca.js"
+    "static/css/main.1957d6ff.css",
+    "static/js/main.1ec781a5.js"
   ]
 }
