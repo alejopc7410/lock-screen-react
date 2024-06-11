@@ -1,7 +1,7 @@
-function Number_Btn({id, onClickFunc}) {
+function NumberBtn({id, onClickFunc, icon}) {
   return (
-    <><span className="number-btn" onClick={() => onClickFunc(id)}>{id}</span></>
+    <><span className="number-btn" onClick={() => onClickFunc(id)}>{id}{icon}</span></>
   )
 }
 
-export default Number_Btn
+export default NumberBtn

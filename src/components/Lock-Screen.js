@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import Number_Btn from "./Number-Btn"
+import { FaBackspace } from "react-icons/fa";
 
-function LockScreen() {
-    const currentPassword = 564130;
+function LockScreen({isUnlocked, password, stateStyle}) {
     const [isCorrect, setIsCorrect] = useState(null)
     const [inputValue, setInputValue] = useState('')
     const [previousValues, setValues] = useState([])
@@ -10,23 +10,26 @@ function LockScreen() {
     for (let i=9; i>=0; i--) { i === 0 ? numbers.push(i) : numbers.unshift(i) }
 
     const checkPassword = () => {
-        if (inputValue === currentPassword.toString()) {
+        if (inputValue === `${password}`) {
             setIsCorrect(true)
-            setInputValue("Access Granted")
+            stateStyle(true)
+            isUnlocked(true)
             setTimeout(() => {
-                setIsCorrect(null)
-                setInputValue('');
+                stateStyle(null)
                 setValues([])
-            }, 5000)                
+            }, 2200)                
         }
         else {
             setInputValue("Try Again")
             setIsCorrect(false)
+            stateStyle(false)
+            isUnlocked(false)
             setTimeout(() => {
                 setIsCorrect(null)
+                stateStyle(null)
                 setValues([]) 
                 setInputValue('');
-            }, 5000)
+            }, 2200)
         }        
     }
 
@@ -44,11 +47,19 @@ function LockScreen() {
         });
     };    
 
+    const deleteNumFromInput = () => {
+        setValues((prevVal) => {
+            const newValues = prevVal.slice(0, -1)
+            setInputValue(newValues.join(''))
+            return newValues;
+        });
+    };
+
     return (
         <>
             <div className="password">
                 <input 
-                    type={isCorrect != null ? isCorrect ? "text" : "text" : "password"} 
+                    type={isCorrect != null ? isCorrect ? "password" : "text" : "password"} 
                     className={isCorrect != null ? isCorrect ? "isCorrect" : "isIncorrect" : ""}
                     value={inputValue}
                     disabled
@@ -59,6 +70,7 @@ function LockScreen() {
                     {numbers.map((number) => {
                         return (<><Number_Btn id={number} onClickFunc={handleInputChanges}/></>)
                     })}
+                    {inputValue.length > 0 ? <Number_Btn icon={<FaBackspace/>} onClickFunc={deleteNumFromInput}/> : <><span></span></>}
                 </div>
             </div>
         </>
